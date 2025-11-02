@@ -33,6 +33,7 @@ async function sendWebhook(params) {
             continue;
         };
         const txt = await webhook.text().catch(() => '');
+        console.error('Webhook failed:', JSON.stringify(params));
         throw new Error(`Webhook failed: ${webhook.status} ${webhook.statusText} ${txt}`);
     };
     throw new Error('Webhook failed to be sent');
@@ -76,27 +77,35 @@ async function martMail() {
                         content = Array.from(section.querySelectorAll('li')).map((li, j) => `${j + 1}. ${li.textContent.trim()}`).join('\n').trim();
                         break;
                     default:
-                        content = (section.querySelector('span:has(strong)') ? new JSDOM(`<!DOCTYPE html>${sectionHTML.split(section.querySelector('span:has(strong)').outerHTML)[1]}`).window.document : section).body.textContent.trim();
+                        content = ((section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').outerHTML.length < 50)) ? new JSDOM(`<!DOCTYPE html>${sectionHTML.split(section.querySelector('span:has(strong)').outerHTML)[1]}`).window.document : section).body.textContent.trim();
                         break;
                 };
                 return {
-                    heading: section.querySelector('span:has(strong)') ? section.querySelector('span:has(strong)').textContent.trim() : null,
+                    heading: (section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').outerHTML.length < 50)) ? section.querySelector('span:has(strong)').textContent.trim() : null,
                     content
                 };
             })).filter(section => section.content.length > 0).flatMap(section => {
-                if (section.content.length <= 1024) {
+                var parts = [];
+                var content = section.content;
+                if (content.length <= 1024) {
                     return [section];
                 } else {
-                    const parts = [];
-                    var content = section.content;
                     while (content.length > 0) {
+                        var cutoff = Math.min(content.lastIndexOf(' ', 1024), 1024);
+                        if (cutoff === -1) cutoff = 1024;
                         parts.push({
                             heading: parts.length ? '' : section.heading,
-                            content: content.substring(0, 1024)
+                            content: (content.length <= cutoff) ? content.substring(0, cutoff) : `${content.substring(0, cutoff)}...`
                         });
-                        content = content.substring(1024);
+                        content = content.substring(cutoff).trim();
                     };
                     return parts;
+                };
+            }).map(communicationSection => {
+                return {
+                    "name": communicationSection.heading || "",
+                    "value": communicationSection.content,
+                    "inline": false
                 };
             });
             await sendWebhook({
@@ -116,13 +125,14 @@ async function martMail() {
                         "thumbnail": {
                             "url": `${process.env.DOMAIN}${communicationImage}`
                         },
-                        "fields": communicationSections.map(communicationSection => {
-                            return {
-                                "name": communicationSection.heading || "",
-                                "value": communicationSection.content,
+                        "fields": (communicationSections.length > 25) ? [
+                            ...communicationSections.slice(0, 24),
+                            {
+                                "name": "",
+                                "value": `--------------------------\nRead the next ${communicationSections.length - 25} paragraph${((communicationSections.length - 25) > 1) ? 's' : ''} below:`,
                                 "inline": false
-                            };
-                        }),
+                            }
+                        ] : communicationSections.slice(0, 25),
                         "url": `${process.env.DOMAIN}${communicationURL}`,
                         "footer": {
                             "text": "Mart Mail - Official Marty Schmidt Fanclub",
@@ -147,7 +157,7 @@ async function martMail() {
                             {
                                 "type": 2,
                                 "style": 5,
-                                "label": "Read it online",
+                                "label": `Read ${(communicationSections.length > 25) ? 'the rest' : 'it'} online`,
                                 "emoji": {
                                     "name": "📃"
                                 },
@@ -167,6 +177,7 @@ async function martMail() {
             await updateMartStats('totalSent', 1);
             lastSentDateSent = communicationDateTime;
             await new Promise(resolve => setTimeout(resolve, 1500));
+            console.log(`Sent Mart Mail #${total - communicationsArray.indexOf(communicationItem)}${(total - communicationsArray.indexOf(communicationItem) != total) ? `/${total}` : ''} - ${new Date(communicationDateTime)}`);
         };
         if (lastSentDateSent) await updateMartStats('lastSent', lastSentDateSent);
     } catch (error) {
