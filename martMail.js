@@ -77,11 +77,11 @@ async function martMail() {
                         content = Array.from(section.querySelectorAll('li')).map((li, j) => `${j + 1}. ${li.textContent.trim()}`).join('\n').trim();
                         break;
                     default:
-                        content = ((section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').outerHTML.length < 50)) ? new JSDOM(`<!DOCTYPE html>${sectionHTML.split(section.querySelector('span:has(strong)').outerHTML)[1]}`).window.document : section).body.textContent.trim();
+                        content = ((section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').innerHTML.length < 50)) ? new JSDOM(`<!DOCTYPE html>${sectionHTML.split(section.querySelector('span:has(strong)').outerHTML)[1]}`).window.document : section).body.textContent.trim();
                         break;
                 };
                 return {
-                    heading: (section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').outerHTML.length < 50)) ? section.querySelector('span:has(strong)').textContent.trim() : null,
+                    heading: (section.querySelector('span:has(strong)') && (section.querySelector('span:has(strong)').innerHTML.length < 50)) ? section.querySelector('span:has(strong)').textContent.trim() : null,
                     content
                 };
             })).filter(section => section.content.length > 0).flatMap(section => {
@@ -148,7 +148,7 @@ async function martMail() {
                             {
                                 "type": 2,
                                 "style": 5,
-                                "label": "All communications",
+                                "label": "All Mart Mails",
                                 "emoji": {
                                     "name": "📰"
                                 },
@@ -157,7 +157,7 @@ async function martMail() {
                             {
                                 "type": 2,
                                 "style": 5,
-                                "label": `Read ${(communicationSections.length > 25) ? 'the rest' : 'it'} online`,
+                                "label": `Read ${(communicationSections.length > 25) ? 'the rest' : 'it online'}`,
                                 "emoji": {
                                     "name": "📃"
                                 },
