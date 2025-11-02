@@ -182,7 +182,7 @@ async function martMail() {
             await sendWebhook({
                 "username": "Mart Mail",
                 "avatar_url": "https://faisaln.com/Mart-Mail.png",
-                "content": "<@905990944858451988>",
+                "content": `<@${process.env.DISCORD_ROLE_ID}> New Mart Mail received!`,
                 "embeds": embeds,
                 "components": [
                     {
