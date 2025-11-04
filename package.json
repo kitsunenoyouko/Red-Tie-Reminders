@@ -1,41 +1,38 @@
 {
-	"name": "mart-mail",
+	"name": "red-tie-reminders",
 	"version": "1.1.0",
-	"description": "Sends RPI President Martin A. Schmidt's official email announcements to the Official Marty Schmidt Fanclub.",
-	"main": "martMail.js",
+	"description": "Sends reminders to wear a red tie on Tuesdays to the Official Marty Schmidt Fanclub.",
+	"main": "redTieReminders.js",
 	"files": [
-		"martMail.js",
+		"redTieReminders.js",
 		"martStats.json"
 	],
 	"scripts": {
-		"start": "node martMail.js",
-		"dev": "node martMail.js",
+		"start": "node redTieReminders.js",
+		"dev": "node redTieReminders.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
-		"notifications",
+		"reminder",
+		"reminders",
 		"rpi",
-		"email",
-		"emails",
+		"red-tie",
+		"red",
+		"tie",
 		"president",
 		"schmidt",
-		"announcements",
 		"martin",
 		"marty",
 		"fanclub",
 		"rensselaer-polytechnic-institute",
-		"communicatons",
 		"marty-schmidt",
 		"martin-a-schmidt",
 		"martin-schmidt"
 	],
 	"author": "Faisal Nageer",
 	"license": "BSL-1.0",
-	"dependencies": {
-		"jsdom": "^27.1.0"
-	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/faisalnjs/Mart-Mail.git"
+		"url": "https://github.com/faisalnjs/Red-Tie-Reminders.git"
 	}
 }
