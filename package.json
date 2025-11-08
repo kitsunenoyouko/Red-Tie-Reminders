@@ -1,6 +1,6 @@
 {
 	"name": "red-tie-reminders",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Sends reminders to wear a red tie on Tuesdays to the Official Marty Schmidt Fanclub.",
 	"main": "redTieReminders.js",
 	"files": [
