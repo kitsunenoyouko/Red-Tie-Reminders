@@ -41,6 +41,7 @@ async function sendWebhook(params) {
 
 async function redTieReminders() {
     try {
+        if (new Date(martStats.lastSent).toDateString() === new Date().toDateString()) return;
         lastSentDateSent = new Date();
         await sendWebhook({
             "username": "Red Tie Reminders",
